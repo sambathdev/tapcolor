@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Document</title>
+    <style>
+        .canvas{
+            width: 70%;
+            height: 300px;
+            margin: auto;
+            background: rgb(238, 238, 238);
+            position: relative;
+        }
+        .pdot{
+            background: #000;
+            width: 10px;
+            height: 10px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 style="text-align: center;">Click And Enjoy Clicking <></h1>
+
+    <div class="canvas" id="canvas">
+
+    </div>
+
+    <script>
+
+        console.log( document.getElementById('canvas').offsetLeft );
+
+
+        document.getElementById('canvas').addEventListener('click', (e)=>{
+            var newDot = document.createElement("div");
+            newDot.classList.add("pdot");
+            newDot.style.left = (e.clientX - document.getElementById('canvas').offsetLeft) + "px" ;
+            newDot.style.top = (e.clientY - document.getElementById('canvas').offsetTop) + "px" ;
+            var c1 = Math.floor(Math.random()*255);
+            var c2 = Math.floor(Math.random()*255);
+            var c3 = Math.floor(Math.random()*255);
+            newDot.style.background = "rgb("+c1+","+c2+","+c3+")";
+            document.getElementById('canvas').appendChild(newDot);
+
+        });
+
+    </script>
+
+
+</body>
+</html>
